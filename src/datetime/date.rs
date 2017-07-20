@@ -1,7 +1,7 @@
 use time::{Tm};
 use datetime::time_change::TimeChange;
 
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 #[derive(Eq, PartialEq)]
 pub struct Date {
     pub year: u32,
@@ -26,8 +26,8 @@ static C: u32 = 38;
 
 impl Date {
     fn from_jdn(jdn: u32) -> Date {
-        let f = jdn + J + (((4 * jdn + B) / 146097) * 3) / 4 - C;
-        let e = R * f + V;
+        let f = jdn + J + (((4u32.wrapping_mul(jdn) + B) / 146097) * 3) / 4 - C;
+        let e = R.wrapping_mul(f) + V;
         let g = (e % P) / R;
         let h = U * g + W;
         let day = (h % S) / U + 1;
@@ -68,7 +68,7 @@ impl Date {
 
     fn add_months(&self, n: u32) -> Date {
         let remaining_in_year = 12 - self.month;
-        let after_this_year = n - remaining_in_year;
+        let after_this_year = n.wrapping_sub(remaining_in_year);
 
         if (after_this_year > 0) {
             let years = after_this_year / 12 + 1;
@@ -101,7 +101,7 @@ impl Date {
 
         let mut jdn: u32 = self.day;
         jdn += ((153 * m) + 2) / 5;
-        jdn += (365 * y);
+        jdn += (365u32.wrapping_mul(y));
         jdn += (y / 4);
         jdn -= (y / 100);
         jdn += (y / 400);

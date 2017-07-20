@@ -90,7 +90,7 @@ impl ChangeTime for Time {
         let mut months = None;
         let mut days = change.days;
         let mut hours = change.hours;
-        let mut date = &self.date;
+        let mut date = self.date.clone();
 
         change.years.map(|supplied_years| {
             let full_years = supplied_years.trunc();
@@ -154,9 +154,9 @@ impl ChangeTime for Time {
 
 
 
-        years.map(|years| date = &date.advance_years(years as u32));
-        months.map(|months| date = &date.advance_months(months as i32));
-        days.map(|days| date = &date.advance_days(days as u32));
+        years.map(|years| date = date.advance_years(years as u32));
+        months.map(|months| date = date.advance_months(months as i32));
+        days.map(|days| date = date.advance_days(days as u32));
 
         let time = Time::with_date(date)
             .hour(changed_hours as u32)

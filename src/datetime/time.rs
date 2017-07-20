@@ -1,7 +1,7 @@
 use datetime::date::Date;
 use time::{Tm, now_utc, now};
 
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct Time {
     pub date: Date,
     pub hours: u32,
