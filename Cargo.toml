@@ -3,6 +3,15 @@ name = "expedite"
 version = "0.1.0"
 authors = ["blackanger <blackanger.z@gmail.com>"]
 
+description = "Rust Common toolset"
+homepage = "https://github.com/RustStudy/expedite"
+documentation = "https://github.com/RustStudy/expedite"
+repository = "https://github.com/RustStudy/expedite"
+keywords = ["common toolset", "time", "macro"]
+categories = ["toolset"]
+readme = "README.md"
+license = "MIT/Apache-2.0"
+
 [[bin]]
 name = "expedite"
 
