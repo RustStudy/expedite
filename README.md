@@ -1,5 +1,14 @@
 # Rust Common toolset
 
+### Usage:
+
+in Cargo.toml:
+
+```rust
+[dependencies]
+expedite = "0.1.0"
+```
+
 ### Time
 
 ```rust
