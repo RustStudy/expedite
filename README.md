@@ -2,7 +2,7 @@
 
 ### Time
 
-```
+```rust
 extern crate expedite;
 use expedite::datetime::period::Period;
 use expedite::datetime::time::Time;
@@ -30,7 +30,7 @@ fn main() {
 
 1. Hash Literal
 
-```
+```rust
 #[macro_use]
 extern crate expedite;
 
