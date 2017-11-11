@@ -13,6 +13,7 @@ fn main() {
     println!("{:?}", 2.months().from_now());
     println!("{:?}", 2.years().from_now());
 
+
     let mut map = hash!{'{' => '}', '[' => ']', '(' => ')'};
     println!("{:?}", map);
 }

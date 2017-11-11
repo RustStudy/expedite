@@ -120,7 +120,6 @@ impl ChangeTime for Time {
             hours = Some((partial_days * 24f32) + hours.unwrap_or(0f32));
         });
 
-        // TODO: years, months, weeks
 
         let mut carry_minutes = 0f32;
         let mut carry_hours = 0f32;
